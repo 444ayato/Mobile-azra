@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white">#8EBAE4</color>
+    <color name="warna_btn">#99A7F6</color>
 </resources>

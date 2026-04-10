@@ -5,13 +5,19 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/mobil"
     tools:context=".pertemuan_3.ThirdActivity">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="40dp"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:text="@string/judul"
+        android:fontFamily="@font/instrumentserif_italic"
+        android:textColor="#156AAD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,10 +25,12 @@
 
     <Button
         android:id="@+id/buttonSubmit"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="132dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="56dp"
         android:text="Kirim"
+        android:backgroundTint="@color/warna_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputNama" />
@@ -31,15 +39,22 @@
         android:id="@+id/inputNama"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="296dp"
         android:ems="10"
         android:inputType="text"
         android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="172dp"
+        android:layout_height="209dp"
+        app:srcCompat="@drawable/handphone"
+        tools:layout_editor_absoluteX="119dp"
+        tools:layout_editor_absoluteY="148dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,6 +31,9 @@ class ThirdActivity : AppCompatActivity() {
             Log.e("Klik btnSubmit","Tombol berhasil di tekan. Isi dari inputNama = $nama")
 
             Toast.makeText(this, "Anda telah melakukan klik pada tombol Submit", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(createPackageContext = this, cls = ThirdResultActivity::class.java)
+            startActivity(intent)
         }
     }
 }
