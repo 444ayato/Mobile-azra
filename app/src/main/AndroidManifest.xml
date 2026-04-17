@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AzraApps">
         <activity
+            android:name=".pertemuan_4.FourthActivity"
+            android:exported="false" />
+        <activity
             android:name=".pertemuan_3.ThirdResultActivity"
             android:exported="false" />
         <activity
@@ -28,7 +31,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="true" />
     </application>
 
 </manifest>
