@@ -11,6 +11,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AzraApps">
+
+        <!-- 1. SplashScreen sebagai pintu utama aplikasi -->
+        <activity
+            android:name=".SplashScreenActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 2. AuthActivity -->
+        <activity
+            android:name=".AuthActivity"
+            android:exported="false" />
+
+        <!-- 3. Activity lainnya (ThirdActivity diubah exported-nya jadi false karena bukan launcher lagi) -->
         <activity
             android:name=".pertemuan_4.FourthActivity"
             android:exported="false" />
@@ -22,16 +39,11 @@
             android:exported="false" />
         <activity
             android:name=".pertemuan_3.ThirdActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+
     </application>
 
 </manifest>
