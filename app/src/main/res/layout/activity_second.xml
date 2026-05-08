@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#F4F8FF"
     android:padding="24dp"
-    tools:context=".pertemuan_2.SecondActivity">
+    tools:context=".Home.pertemuan_2.SecondActivity">
 
     <!-- Judul Aplikasi -->
     <TextView

@@ -2,4 +2,6 @@
     <string name="app_name">AzraApps</string>
     <string name="judul">Verifiikasi Login</string>
     <string name="judul_baru">Kode Berhasil Dikirim!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

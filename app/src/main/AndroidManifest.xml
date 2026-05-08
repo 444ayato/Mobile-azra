@@ -11,39 +11,39 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AzraApps">
-
-        <!-- 1. SplashScreen sebagai pintu utama aplikasi -->
         <activity
             android:name=".SplashScreenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Home.pertemuan_7.SeventhActivity"
+            android:exported="false" /> <!-- 1. SplashScreen sebagai pintu utama aplikasi -->
+        <activity
+            android:name=".BaseActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- 2. AuthActivity -->
+        </activity> <!-- 2. AuthActivity -->
         <activity
             android:name=".AuthActivity"
-            android:exported="false" />
-
-        <!-- 3. Activity lainnya (ThirdActivity diubah exported-nya jadi false karena bukan launcher lagi) -->
+            android:exported="false" /> <!-- 3. Activity lainnya (ThirdActivity diubah exported-nya jadi false karena bukan launcher lagi) -->
         <activity
-            android:name=".pertemuan_4.FourthActivity"
+            android:name=".Home.pertemuan_4.FourthActivity"
             android:exported="false" />
         <activity
-            android:name=".pertemuan_3.ThirdResultActivity"
+            android:name=".Home.pertemuan_3.ThirdResultActivity"
             android:exported="false" />
         <activity
-            android:name=".pertemuan_2.SecondActivity"
+            android:name=".Home.pertemuan_2.SecondActivity"
             android:exported="false" />
         <activity
-            android:name=".pertemuan_3.ThirdActivity"
+            android:name=".Home.pertemuan_3.ThirdActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
-
     </application>
 
 </manifest>
