@@ -15,6 +15,7 @@ import com.example.azraapps.Home.pertemuan_4.FourthActivity
 import com.example.azraapps.Home.pertemuan_5.FifthActivity
 import com.example.azraapps.Home.pertemuan_7.SeventhActivity
 import com.example.azraapps.Home.pertemuan_9.NinthActivity
+import com.example.azraapps.Home.pertemuan_10.TenthActivity // 1. TAMBAHKAN IMPORT INI
 import com.example.azraapps.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -73,6 +74,12 @@ class HomeFragment : Fragment() {
         // --- Navigasi ke Pertemuan 9 ---
         binding.btnToNinth.setOnClickListener {
             val intent = Intent(requireContext(), NinthActivity::class.java)
+            startActivity(intent)
+        }
+
+        // --- NAVIGASI KE PERTEMUAN 10 (BARU) ---
+        binding.btnToTenth.setOnClickListener {
+            val intent = Intent(requireContext(), TenthActivity::class.java)
             startActivity(intent)
         }
 

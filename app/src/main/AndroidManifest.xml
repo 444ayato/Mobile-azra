@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -14,6 +15,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AzraApps">
+        <activity
+            android:name=".Home.pertemuan_10.TabCFragment"
+            android:exported="false" />
+        <activity
+            android:name=".Home.pertemuan_10.TenthActivity"
+            android:exported="false" />
         <activity
             android:name=".Home.pertemuan_9.NinthActivity"
             android:exported="false" />
