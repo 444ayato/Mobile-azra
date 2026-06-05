@@ -7,7 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.azraapps.AuthActivity
 import com.example.azraapps.Home.pertemuan_2.SecondActivity
 import com.example.azraapps.Home.pertemuan_3.ThirdActivity
@@ -15,8 +19,12 @@ import com.example.azraapps.Home.pertemuan_4.FourthActivity
 import com.example.azraapps.Home.pertemuan_5.FifthActivity
 import com.example.azraapps.Home.pertemuan_7.SeventhActivity
 import com.example.azraapps.Home.pertemuan_9.NinthActivity
-import com.example.azraapps.Home.pertemuan_10.TenthActivity // 1. TAMBAHKAN IMPORT INI
+import com.example.azraapps.Home.pertemuan_10.TenthActivity
+import com.example.azraapps.Home.photo.PhotoAdapter
+import com.example.azraapps.data.api.CatFactApiClient
+import com.example.azraapps.data.api.PhotoApiClient
 import com.example.azraapps.databinding.FragmentHomeBinding
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -25,7 +33,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -77,10 +85,19 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        // --- NAVIGASI KE PERTEMUAN 10 (BARU) ---
+        // --- Navigasi ke Pertemuan 10 ---
         binding.btnToTenth.setOnClickListener {
             val intent = Intent(requireContext(), TenthActivity::class.java)
             startActivity(intent)
+        }
+
+        // --- Memuat Fakta Kucing & Foto Pertama Kali ---
+        loadCatFact()
+        loadPhoto()
+
+        // --- Aksi Klik Tombol Refresh ---
+        binding.btnRefresh.setOnClickListener {
+            loadCatFact()
         }
 
         // --- Aksi Tombol Logout ---
@@ -102,6 +119,46 @@ class HomeFragment : Fragment() {
                 }
                 .setNegativeButton("Tidak", null)
                 .show()
+        }
+    }
+
+    private fun loadCatFact() {
+        binding.tvCatFact.text = "Loading cat fact..."
+        lifecycleScope.launch {
+            try {
+                val response = CatFactApiClient.apiService.getCatFact()
+                binding.tvCatFact.text = "\"${response.fact}\""
+            } catch (e: Exception) {
+                binding.tvCatFact.text = "Gagal mengambil fakta kucing."
+            }
+        }
+    }
+
+    // Fungsi Mengambil data foto dari Picsum API dan memasangnya ke RecyclerView
+    private fun loadPhoto() {
+        lifecycleScope.launch {
+            try {
+                val photos = PhotoApiClient.apiService.getPhotos()
+                val adapter = PhotoAdapter(photos)
+                binding.rvGallery.adapter = adapter
+
+                /** * SILAHKAN PILIH SALAH SATU MODE DI BAWAH INI:
+                 * Hapus tanda // pada mode yang ingin diaktifkan,
+                 * dan tambahkan // pada mode yang ingin dimatikan.
+                 */
+
+                /** [Mode 1] List Tampil Vertical */
+                // binding.rvGallery.layoutManager = LinearLayoutManager(requireContext())
+
+                /** [Mode 2] List Tampil Horizontal */
+                // binding.rvGallery.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+                /** [Mode 3] List Tampil Grid (Sesuai Hasil Akhir Gambar 2 Kolom) */
+                binding.rvGallery.layoutManager = GridLayoutManager(requireContext(), 2)
+
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), "Gagal memuat gambar", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.azraapps.R
+// PERBAIKAN IMPORT BINDING: Mengarah ke root package aplikasi utama kamu
 import com.example.azraapps.databinding.ActivityTenthBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -58,11 +59,9 @@ class TenthActivity : AppCompatActivity() {
                     badge.number = 5
                 }
                 2 -> {
-                    // TAMBAHKAN CASE UNTUK TAB C (PRODUK) DI SINI
                     tab.text = "Produk"
                     tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_home)
 
-                    // Opsional: Tambahkan badge notifikasi jika diinginkan, misal angka 50 sesuai jumlah item
                     val badge = tab.getOrCreateBadge()
                     badge.isVisible = true
                     badge.number = 50

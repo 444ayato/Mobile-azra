@@ -12,7 +12,7 @@ import com.example.azraapps.Message.MessageFragment
 import com.example.azraapps.More.MoreFragment
 import com.example.azraapps.databinding.ActivityBaseBinding
 
-class BaseActivity : AppCompatActivity() {
+class BaseActivity: AppCompatActivity() {
 
     private lateinit var binding: ActivityBaseBinding
 
@@ -29,6 +29,7 @@ class BaseActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
             insets
         }
+        replaceFragment(HomeFragment())
         binding.bottomNavView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {

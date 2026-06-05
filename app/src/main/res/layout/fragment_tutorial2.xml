@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#AED581"
+    android:padding="24dp">
+
+    <ImageView
+        android:id="@+id/imgLogo2"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="148dp"
+        android:contentDescription="Logo Tutorial 2"
+        android:background="@drawable/ic_launcher_background"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="Tap untuk Melihat Detail!"
+        android:textAlignment="center"
+        android:textColor="#37474F"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgLogo2" />
+
+    <TextView
+        android:id="@+id/tvDesc2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:text="Ketuk salah satu pesan untuk melihat detailnya. Kamu juga bisa menambahkan aksi lain seperti membalas, menyimpan, atau membagikan pesan tersebut"
+        android:textAlignment="center"
+        android:textColor="#37474F"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

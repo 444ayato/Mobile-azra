@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AzraApps">
         <activity
-            android:name=".Home.pertemuan_10.TabCFragment"
+            android:name=".Home.Message.tutorial.TutorialMessageActivity"
             android:exported="false" />
         <activity
             android:name=".Home.pertemuan_10.TenthActivity"
