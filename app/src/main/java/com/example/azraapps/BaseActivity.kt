@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.azraapps.Home.HomeFragment
 import com.example.azraapps.Message.MessageFragment
 import com.example.azraapps.More.MoreFragment
+import com.example.azraapps.Note.NoteFragment
 import com.example.azraapps.databinding.ActivityBaseBinding
 
 class BaseActivity: AppCompatActivity() {
@@ -42,6 +43,10 @@ class BaseActivity: AppCompatActivity() {
                 }
                 R.id.more -> {
                     replaceFragment(MoreFragment())
+                    true
+                }
+                R.id.note -> {
+                    replaceFragment(NoteFragment())
                     true
                 }
                 else -> false // return false jika item tidak ada yang di klik
