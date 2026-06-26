@@ -66,28 +66,29 @@ class ThirdActivity : AppCompatActivity() {
             } else {
                 Log.e("Klik btnSubmit", "Tombol berhasil ditekan. Isi nama = $nama")
 
-                // Mengambil waktu saat ini dan menambahkan durasi 1 menit ke depan
-                val calendar = Calendar.getInstance().apply {
-                    add(Calendar.MINUTE, 1)
-                }
-
-                // Memanggil ReminderHelper untuk menjadwalkan alarm background
-                ReminderHelper.setReminder(
-                    context = this,
-                    hour = calendar.get(Calendar.HOUR_OF_DAY),
-                    minute = calendar.get(Calendar.MINUTE),
-                    title = "Reminder 1 Menit",
-                    message = "Halo $nama, reminder ini muncul 1 menit setelah tombol ditekan",
-                    targetActivity = ThirdResultActivity::class.java
-                )
-
-                // Memberi informasi transisi yang jelas kepada pengguna
-                Toast.makeText(
-                    this,
-                    "Silahkan tunggu 1 Menit untuk menerima Notifikasi...",
-                    Toast.LENGTH_LONG
-                ).show()
             }
+
+            // Mengambil waktu saat ini dan menambahkan durasi 1 menit ke depan
+            val calendar = Calendar.getInstance().apply {
+                add(Calendar.MINUTE, 1)
+            }
+
+            // Memanggil ReminderHelper untuk menjadwalkan alarm background
+            ReminderHelper.setReminder(
+                context = this,
+                hour = calendar.get(Calendar.HOUR_OF_DAY),
+                minute = calendar.get(Calendar.MINUTE),
+                title = "Reminder 1 Menit",
+                message = "Halo $nama, reminder ini muncul 1 menit setelah tombol ditekan",
+                targetActivity = ThirdResultActivity::class.java
+            )
+
+            // Memberi informasi transisi yang jelas kepada pengguna
+            Toast.makeText(
+                this,
+                "Silahkan tunggu 1 Menit untuk menerima Notifikasi...",
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 }
