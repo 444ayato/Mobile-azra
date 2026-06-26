@@ -20,6 +20,7 @@ import com.example.azraapps.Home.pertemuan_5.FifthActivity
 import com.example.azraapps.Home.pertemuan_7.SeventhActivity
 import com.example.azraapps.Home.pertemuan_9.NinthActivity
 import com.example.azraapps.Home.pertemuan_10.TenthActivity
+import com.example.azraapps.Home.pertemuan_13.ThirteenthActivity // Import Pertemuan 13
 import com.example.azraapps.Home.photo.PhotoAdapter
 import com.example.azraapps.data.api.CatFactApiClient
 import com.example.azraapps.data.api.PhotoApiClient
@@ -91,6 +92,12 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        // --- Navigasi ke Pertemuan 13 ---
+        binding.btnPertemuan13.setOnClickListener {
+            val intent = Intent(requireContext(), ThirteenthActivity::class.java)
+            startActivity(intent)
+        }
+
         // --- Memuat Fakta Kucing & Foto Pertama Kali ---
         loadCatFact()
         loadPhoto()
@@ -134,7 +141,6 @@ class HomeFragment : Fragment() {
         }
     }
 
-    // Fungsi Mengambil data foto dari Picsum API dan memasangnya ke RecyclerView
     private fun loadPhoto() {
         lifecycleScope.launch {
             try {
@@ -142,18 +148,6 @@ class HomeFragment : Fragment() {
                 val adapter = PhotoAdapter(photos)
                 binding.rvGallery.adapter = adapter
 
-                /** * SILAHKAN PILIH SALAH SATU MODE DI BAWAH INI:
-                 * Hapus tanda // pada mode yang ingin diaktifkan,
-                 * dan tambahkan // pada mode yang ingin dimatikan.
-                 */
-
-                /** [Mode 1] List Tampil Vertical */
-                // binding.rvGallery.layoutManager = LinearLayoutManager(requireContext())
-
-                /** [Mode 2] List Tampil Horizontal */
-                // binding.rvGallery.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-
-                /** [Mode 3] List Tampil Grid (Sesuai Hasil Akhir Gambar 2 Kolom) */
                 binding.rvGallery.layoutManager = GridLayoutManager(requireContext(), 2)
 
             } catch (e: Exception) {
@@ -162,4 +156,8 @@ class HomeFragment : Fragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
